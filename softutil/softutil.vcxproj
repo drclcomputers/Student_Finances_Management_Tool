@@ -133,6 +133,7 @@
     <None Include="buget.pg" />
     <None Include="expense.pg" />
     <None Include="income.pg" />
+    <None Include="savings.pg" />
     <None Include="venit.pg" />
   </ItemGroup>
   <ItemGroup>
