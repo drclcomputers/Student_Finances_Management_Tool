@@ -6,11 +6,13 @@
 #include<iomanip>
 #include<cstdlib>
 
+
 #ifdef _WIN32
 #define CLEAR_SCREEN "cls"
 #else
 #define CLEAR_SCREEN "clear"
 #endif
+
 
 typedef int natural;
 
@@ -283,12 +285,17 @@ public:
 		ifstream fi1n("./files/buget.pg");
 		fi1n >> buget;
 		fi1n.close();
-		cout << "Money: " << venit << "      Budget: " << buget << '\n';
+		cout << "\033[33m";
+		cout << "Money: " << venit;
+		cout << "\033[34m";
+		cout << "      Budget: " << buget << '\n';
+		cout << "\033[31m";
 		int savings;
 		ifstream fin3("./files/savings.pg");
 		fin3 >> savings;
 		fin3.close();
 		cout << "Savings: " << savings << "\n\n";
+		cout << "\033[0m";
 		cout << "What do you want to do: \n1. Deposit\n2. Withdraw\n3. View History\n4. Exit\n\n> ";
 		int choice; cin >> choice;
 		while (choice > 4 || choice < 1) {
@@ -364,6 +371,23 @@ public:
 	}
 
 
+	void help() {
+		cout << "------------------Help------------------\n\n";
+		cout << "income -> add new income entry\n";
+		cout << "expense -> add new expense entry\n";
+		cout << "showincome -> show a list of all incomes\n";
+		cout << "showexpense -> show a list of all expenses\n";
+		cout << "setbudget -> sets budget\n";
+		cout << "exit -> exit the software\n";
+		cout << "help -> show help menu\n";
+		cout << "savings -> manage savings account\n";
+		cout << "report -> generates a report with all incomes and expenses\n";
+		cout << "resetincome -> delete all records of income\n";
+		cout << "resetexpense -> delete all records of expenses\n";
+		cout << "resetsavings -> reset all records of savings\n";
+		cout << "reset -> reset all the data in the program\n\n";
+	}
+
 
 	void start() {
 		ifstream fin("./files/venit.pg");
@@ -372,13 +396,21 @@ public:
 		ifstream fi1n("./files/buget.pg");
 		fi1n >> buget;
 		fi1n.close();
-		cout << "Money: " << venit << "      Budget: " << buget << '\n';
+		cout << "\033[33m";
+		cout << "Money: " << venit;
+		cout << "\033[34m";
+		cout << "      Budget: " << buget << '\n';
+		cout << "\033[31m";
 		if (venit >= buget) cout << "All good!\n";
 		else if (venit <= buget / 2 && venit > 0) cout << "Your income is kind of low!\n";
 		else if (venit == 0) cout << "You're on the verge of bankruptcy\n";
 		else if (venit < 0) cout << "You're in debt!\n";
+		cout << "\033[0m";
 		cout << '\n';
-		cout << "> ";  char com[21]; cin.getline(com, 21);
+		cout << "> ";  
+		cout << "\033[32m";
+		char com[21]; cin.getline(com, 21);
+		cout << "\033[0m";
 		if (strncmp(com, "income", 6)==0) {
 			income();
 		}
@@ -421,6 +453,11 @@ public:
 		}
 		else if (strstr(com, "report")) {
 			report();
+			cout << "Press any key to continue . . . ";
+			cin.get();
+		}
+		else if (strstr(com, "help")) {
+			help();
 			cout << "Press any key to continue . . . ";
 			cin.get();
 		}
