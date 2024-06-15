@@ -136,6 +136,7 @@
     <None Include="files\buget.pg" />
     <None Include="files\expense.pg" />
     <None Include="files\income.pg" />
+    <None Include="files\istoricsavings.pg" />
     <None Include="files\savings.pg" />
     <None Include="files\venit.pg" />
   </ItemGroup>

@@ -146,6 +146,23 @@ public:
 	}
 
 
+	void savings_history() {
+		cout << right << '\n';
+		cout << setw(6) << "Sum"
+			<< setw(10) << " " << "Description"
+			<< setw(10) << " " << "Date";
+		cout << "\n\n";
+		ifstream fin("./files/istoricsavings.pg", ios::app);
+		for (int i = 1; fin; i++) {
+			char text[200]; fin.getline(text, 200);
+			cout << i << ". " << text << '\n';
+			fin.get();
+		}
+		cout << '\n';
+		fin.close();
+		cin.get();
+	}
+
 	void savings_deposit() {
 		cout << "\nEnter sum to deposit: ";
 		natural suma, tot; cin >> suma;
@@ -168,6 +185,16 @@ public:
 		ofstream fin1("./files/venit.pg", ios::trunc);
 		fin1 << venit;
 		fin1.close();
+
+		time_t rawtime = time(0);
+		char* date_time = ctime(&rawtime);
+
+		ofstream fin4("./files/istoricsavings.pg", ios::app);
+		fin4 << "+" << suma << setw(10) << " " << "Deposit";
+		fin4 << setw(10) << " " << date_time << '\n';
+
+		fin4.close();
+
 	}
 
 	void savings_withdraw() {
@@ -192,6 +219,15 @@ public:
 		ofstream fin1("./files/venit.pg", ios::trunc);
 		fin1 << venit;
 		fin1.close();
+
+		time_t rawtime = time(0);
+		char* date_time = ctime(&rawtime);
+
+		ofstream fin4("./files/istoricsavings.pg", ios::app);
+		fin4 << "-" << suma << setw(10) << " " << "Withdraw";
+		fin4 << setw(10) << " " << date_time << '\n';
+
+		fin4.close();
 	}
 
 	void savingsv() {
@@ -208,18 +244,23 @@ public:
 		fin3 >> savings;
 		fin3.close();
 		cout << "Savings: " << savings << "\n\n";
-		cout << "What do you want to do: \n1. Deposit\n2. Withdraw\n3. Exit\n\n> ";
+		cout << "What do you want to do: \n1. Deposit\n2. Withdraw\n3. View History\n4. Exit\n\n> ";
 		int choice; cin >> choice;
 		while (choice > 4 || choice < 1) {
 			cout << "Enter correct choice: ";
 			cin >> choice;
 		}
-		if (choice == 3) return;
+		if (choice == 4) return;
 		else if (choice == 1) {
 			savings_deposit();
 		}
-		else {
+		else if (choice == 2) {
 			savings_withdraw();
+		}
+		else {
+			savings_history();
+			cout << "Press any key to continue . . . ";
+			cin.get();
 		}
 		system(CLEAR_SCREEN);
 		savingsv();
@@ -232,6 +273,8 @@ public:
 		if (strstr(ans, "yes")) {
 			ofstream fin1("./files/savings.pg", ios::trunc);
 			fin1.close();
+			ofstream fin2("./files/istoricsavings.pg", ios::trunc);
+			fin2.close();
 		}
 	}
 
@@ -261,6 +304,8 @@ public:
 			fin2.close();
 			ofstream fin3("./files/expense.pg", ios::trunc);
 			fin3.close();
+			ofstream fin7("./files/istoricsavings.pg", ios::trunc);
+			fin7.close();
 			ofstream fin4("./files/buget.pg", ios::trunc);
 			fin4 << 0;
 			fin4.close();

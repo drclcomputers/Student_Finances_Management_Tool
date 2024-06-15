@@ -43,6 +43,9 @@
     <None Include="files\venit.pg">
       <Filter>Source Files\files</Filter>
     </None>
+    <None Include="files\istoricsavings.pg">
+      <Filter>Source Files\files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="de_adaugat.txt">

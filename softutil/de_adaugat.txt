@@ -1,4 +1,4 @@
-1. In contul de economii, adauga un istoric al tranzactiilor
+
 2. Rapoarte (doar suma, adica primul cuvant de pe linie)
 3. Personalizare
 4. Criptare a fisierelor
