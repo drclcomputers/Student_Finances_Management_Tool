@@ -34,7 +34,7 @@ public:
 			cout << "Enter correct type of income: ";
 			cin >> type;
 		}
-		ofstream fin("income.pg", ios::app);
+		ofstream fin("./files/income.pg", ios::app);
 		fin << suma;
 		fin << setw(5) << " ";
 		if (type == 1) fin << "Scholarship";
@@ -53,7 +53,7 @@ public:
 
 
 		fin.close();
-		ofstream fin1("venit.pg", ios::trunc);
+		ofstream fin1("./files/venit.pg", ios::trunc);
 		fin1 << venit;
 		fin1.close();
 	}
@@ -73,7 +73,7 @@ public:
 			cout << "Enter correct type of expense: ";
 			cin >> type;
 		}
-		ofstream fin("expense.pg", ios::app);
+		ofstream fin("./files/expense.pg", ios::app);
 		fin << suma;
 		fin << setw(5) << " ";
 		if (type == 1) fin << "Food";
@@ -95,7 +95,7 @@ public:
 
 
 		fin.close();
-		ofstream fin1("venit.pg", ios::trunc);
+		ofstream fin1("./files/venit.pg", ios::trunc);
 		fin1 << venit;
 		fin1.close();
 	}
@@ -107,7 +107,7 @@ public:
 			cout << "Enter correct budget: ";
 			cin >> buget;
 		}
-		ofstream fin("buget.pg", ios::trunc);
+		ofstream fin("./files/buget.pg", ios::trunc);
 		fin << buget;
 		fin.close();
 	}
@@ -119,7 +119,7 @@ public:
 			<< setw(5) << " " << "Description"
 			<< setw(10) << " " << "Date";
 		cout << "\n\n";
-		ifstream fin("income.pg", ios::app);
+		ifstream fin("./files/income.pg", ios::app);
 		for (int i = 1; fin; i++) {
 			char text[200]; fin.getline(text, 200);
 			cout << i << ". " << text << '\n';
@@ -135,7 +135,7 @@ public:
 			<< setw(5) << " " << "Description"
 			<< setw(10) << " " << "Date";
 		cout << "\n\n";
-		ifstream fin("expense.pg", ios::app);
+		ifstream fin("./files/expense.pg", ios::app);
 		for (int i = 1; fin; i++) {
 			char text[200]; fin.getline(text, 200);
 			cout << i << ". " << text << '\n';
@@ -154,18 +154,18 @@ public:
 			cin >> suma;
 		}
 		venit -= suma;
-		ifstream fin("savings.pg");
+		ifstream fin("./files/savings.pg");
 		fin >> tot;
 		fin.close();
 
 		tot += suma;
 
-		ofstream fin3("savings.pg", ios::trunc);
+		ofstream fin3("./files/savings.pg", ios::trunc);
 		fin3 << tot;
 		fin3.close();
 		
 
-		ofstream fin1("venit.pg", ios::trunc);
+		ofstream fin1("./files/venit.pg", ios::trunc);
 		fin1 << venit;
 		fin1.close();
 	}
@@ -178,33 +178,33 @@ public:
 			cin >> suma;
 		}
 		venit += suma;
-		ifstream fin("savings.pg");
+		ifstream fin("./files/savings.pg");
 		fin >> tot;
 		fin.close();
 
 		tot -= suma;
 
-		ofstream fin3("savings.pg", ios::trunc);
+		ofstream fin3("./files/savings.pg", ios::trunc);
 		fin3 << tot;
 		fin3.close();
 
 
-		ofstream fin1("venit.pg", ios::trunc);
+		ofstream fin1("./files/venit.pg", ios::trunc);
 		fin1 << venit;
 		fin1.close();
 	}
 
 	void savingsv() {
 		system(CLEAR_SCREEN);
-		ifstream fin("venit.pg");
+		ifstream fin("./files/venit.pg");
 		fin >> venit;
 		fin.close();
-		ifstream fi1n("buget.pg");
+		ifstream fi1n("./files/buget.pg");
 		fi1n >> buget;
 		fi1n.close();
 		cout << "Money: " << venit << "      Budget: " << buget << '\n';
 		int savings;
-		ifstream fin3("savings.pg");
+		ifstream fin3("./files/savings.pg");
 		fin3 >> savings;
 		fin3.close();
 		cout << "Savings: " << savings << "\n\n";
@@ -230,7 +230,7 @@ public:
 		cout << "Are you sure to delete all your savings: ";
 		char ans[5]; cin >> ans;
 		if (strstr(ans, "yes")) {
-			ofstream fin1("savings.pg", ios::trunc);
+			ofstream fin1("./files/savings.pg", ios::trunc);
 			fin1.close();
 		}
 	}
@@ -239,7 +239,7 @@ public:
 		cout << "Are you sure to delete all your incomes: ";
 		char ans[5]; cin >> ans;
 		if (strstr(ans, "yes")) {
-			ofstream fin1("income.pg", ios::trunc);
+			ofstream fin1("./files/income.pg", ios::trunc);
 			fin1.close();
 		}
 	}
@@ -248,7 +248,7 @@ public:
 		cout << "Are you sure to delete all your expenses: ";
 		char ans[5]; cin >> ans;
 		if (strstr(ans, "yes")) {
-			ofstream fin1("expense.pg", ios::trunc);
+			ofstream fin1("./files/expense.pg", ios::trunc);
 			fin1.close();
 		}
 	}
@@ -257,17 +257,17 @@ public:
 		cout << "Are you sure to delete all your incomes: ";
 		char ans[5]; cin >> ans;
 		if (strstr(ans, "yes")) {
-			ofstream fin2("income.pg", ios::trunc);
+			ofstream fin2("./files/income.pg", ios::trunc);
 			fin2.close();
-			ofstream fin3("expense.pg", ios::trunc);
+			ofstream fin3("./files/expense.pg", ios::trunc);
 			fin3.close();
-			ofstream fin4("buget.pg", ios::trunc);
+			ofstream fin4("./files/buget.pg", ios::trunc);
 			fin4 << 0;
 			fin4.close();
-			ofstream fin5("venit.pg", ios::trunc);
+			ofstream fin5("./files/venit.pg", ios::trunc);
 			fin5 << 0;
 			fin5.close();
-			ofstream fin6("savings.pg", ios::trunc);
+			ofstream fin6("./files/savings.pg", ios::trunc);
 			fin6 << 0;
 			fin6.close();
 		}
@@ -276,10 +276,10 @@ public:
 
 
 	void start() {
-		ifstream fin("venit.pg");
+		ifstream fin("./files/venit.pg");
 		fin >> venit;
 		fin.close();
-		ifstream fi1n("buget.pg");
+		ifstream fi1n("./files/buget.pg");
 		fi1n >> buget;
 		fi1n.close();
 		cout << "Money: " << venit << "      Budget: " << buget << '\n';
