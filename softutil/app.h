@@ -4,6 +4,7 @@
 #include<fstream>
 #include<ctime>
 #include<iomanip>
+#include<cstdlib>
 
 #ifdef _WIN32
 #define CLEAR_SCREEN "cls"
@@ -146,6 +147,42 @@ public:
 	}
 
 
+	void report() {
+		int sum = 0;
+		ifstream fin("./files/income.pg", ios::app);
+		for (int i = 1; fin; i++) {
+			char text[200]; fin.getline(text, 200);
+			char *p = strtok(text, " ");
+			if (p != NULL) {
+				cout << "+" << p << "\n";
+				sum += atoi(p);
+			}
+			fin.get();
+		}
+		fin.close();
+		ifstream fin1("./files/expense.pg", ios::app);
+		for (int i = 1; fin1; i++) {
+			char text[200]; fin1.getline(text, 200);
+			char* p = strtok(text, " ");
+			if (p != NULL) {
+				cout << "-" << p << "\n";
+				sum -= atoi(p);
+			}
+			fin1.get();
+		}
+		fin1.close();
+		cout << "----------------";
+		cout << "\nTotal: " << sum << '\n';
+		cout << '\n' << "Report: ";
+		if (sum < 0) cout << "You shouldn't spend this much or maybe try to get a second source of income!";
+		else if (sum == 0) cout << "You should try and save some money in a savings account!";
+		else cout << "You're pretty good with managing your finances!";
+
+		cout << '\n'<<'\n';
+		
+	}
+
+
 	void savings_history() {
 		cout << right << '\n';
 		cout << setw(6) << "Sum"
@@ -195,6 +232,10 @@ public:
 
 		fin4.close();
 
+		ofstream fin5("./files/expense.pg", ios::app);
+		fin5 << suma << setw(5) << " " << "Deposit";
+		fin5 << setw(5) << " " << date_time << '\n';
+
 	}
 
 	void savings_withdraw() {
@@ -228,6 +269,10 @@ public:
 		fin4 << setw(10) << " " << date_time << '\n';
 
 		fin4.close();
+
+		ofstream fin5("./files/income.pg", ios::app);
+		fin5 << suma << setw(5) << " " << "Withdraw";
+		fin5 << setw(5) << " " << date_time << '\n';
 	}
 
 	void savingsv() {
@@ -373,6 +418,11 @@ public:
 		}
 		else if (strstr(com, "savings")) {
 			savingsv();
+		}
+		else if (strstr(com, "report")) {
+			report();
+			cout << "Press any key to continue . . . ";
+			cin.get();
 		}
 		system(CLEAR_SCREEN);
 		start();
