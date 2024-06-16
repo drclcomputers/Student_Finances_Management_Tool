@@ -28,14 +28,22 @@ using namespace std;
 
 class login {
 public:
+	void welcome() {
+		cout << "Finance Software for Students\n\n";
+
+		cout << "Press any key to continue . . . ";
+		cin.get();
+		system(CLEAR_SCREEN);
+	}
+
 	void check() {
 		ifstream fin("./files/logins/user.lg");
 		if (fin.peek() == ifstream::traits_type::eof()) {
 			fin.close();
 			ofstream fin2("./files/logins/user.lg");
 			ofstream fin1("./files/logins/pass.lg", ios::trunc);
-			cout << YELLOW << "Create account\n\n" << WHITE;
-			cout << "It appears that no user exists. Enter new user: ";
+			cout << YELLOW << "Create account\n\n";
+			cout << WHITE << "It appears that no user exists. Enter new user: ";
 			char user[50]; cin.getline(user, 50);
 			if (strcmp(user, "exit") == 0) return;
 			fin2 << crypto.encrypt(user, 12);
@@ -68,6 +76,7 @@ public:
 
 
 	bool loginfunc() {
+		welcome();
 		check();
 		cout << YELLOW << "Login\n\n" << WHITE;
 		cout <<"User: ";
