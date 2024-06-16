@@ -7,6 +7,7 @@
 #include<cstdlib>
 
 
+
 #ifdef _WIN32
 #define CLEAR_SCREEN "cls"
 #else
@@ -22,6 +23,8 @@
 
 
 typedef int natural;
+
+
 
 using namespace std;
 

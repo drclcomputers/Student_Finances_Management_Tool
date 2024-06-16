@@ -6,6 +6,8 @@
 #include<iomanip>
 #include<cstdlib>
 
+#include "cryptographie.h"
+
 
 #ifdef _WIN32
 #define CLEAR_SCREEN "cls"
@@ -17,6 +19,8 @@
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
 #define WHITE "\033[37m"
+
+cryptographiex crypto;
 
 using namespace std;
 
@@ -32,12 +36,12 @@ public:
 			cout << "It appears that no user exists. Enter new user: ";
 			char user[50]; cin.getline(user, 50);
 			if (strcmp(user, "exit") == 0) return;
-			fin2 << user;
+			fin2 << crypto.encrypt(user, 12);
 			
 			cout << "Enter new password: ";
 			char pass[50]; cin.getline(pass, 50);
 			if (strcmp(pass, "exit") == 0) return;
-			fin1 << pass;
+			fin1 << crypto.encrypt(pass, 12);
 			
 			cout << "Now, you'll be directed to the login screen.\n\n";
 			cout << WHITE << "Press any key to continue . . . ";
@@ -55,7 +59,7 @@ public:
 		cout << YELLOW << "Login\n\n" << WHITE;
 		cout <<"User: ";
 		char user[50], realuser[50]; cin.getline(user, 50);
-
+		strcpy(user, crypto.encrypt(user, 12));
 		if (strcmp(user, "exit") == 0) return 0;
 
 		ifstream fin("./files/logins/user.lg");
@@ -70,7 +74,7 @@ public:
 
 		cout << WHITE << "Password: ";
 		char pass[50], realpass[50]; cin.getline(pass, 50);
-
+		strcpy(pass, crypto.encrypt(pass, 12));
 		if (strcmp(pass, "exit") == 0) return 0;
 		
 

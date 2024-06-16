@@ -32,6 +32,9 @@
     <ClInclude Include="login.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cryptographie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg">
