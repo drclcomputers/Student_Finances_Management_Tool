@@ -62,9 +62,4 @@
       <Filter>Source Files\files\logins</Filter>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="de_adaugat.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-  </ItemGroup>
 </Project>
