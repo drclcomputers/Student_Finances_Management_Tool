@@ -19,6 +19,9 @@
     <Filter Include="Source Files\files\logins">
       <UniqueIdentifier>{87bccb31-1d53-41ac-9acf-489809f6524f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\files\logs">
+      <UniqueIdentifier>{52d2cec2-0f65-4c2d-875d-8d49aa3a5ca9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="softutil.cpp">
@@ -60,6 +63,9 @@
     </None>
     <None Include="files\logins\pass.lg">
       <Filter>Source Files\files\logins</Filter>
+    </None>
+    <None Include="files\logs\login.logpg">
+      <Filter>Source Files\files\logs</Filter>
     </None>
   </ItemGroup>
 </Project>

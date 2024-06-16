@@ -53,6 +53,17 @@ public:
 		fin.close();
 	}
 
+	void logs(char *s) {
+		ofstream fin("./files/logs/login.logpg", ios::app);
+
+		time_t rawtime = time(0);
+		char* date_time = ctime(&rawtime);
+
+		fin << "New session created by user '" << s << "' on " << date_time << '\n';
+
+		fin.close();
+	}
+
 
 	bool loginfunc() {
 		check();
@@ -90,6 +101,11 @@ public:
 		}
 
 		cout << GREEN << "\nAcces granted!\n\n";
+
+		strcpy(user, crypto.decrypt(user, 12));
+
+		logs(user);
+
 		cout << WHITE << "Press any key to continue . . . ";
 		cin.get();
 		system(CLEAR_SCREEN);

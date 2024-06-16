@@ -141,6 +141,7 @@
     <None Include="files\istoricsavings.pg" />
     <None Include="files\logins\pass.lg" />
     <None Include="files\logins\user.lg" />
+    <None Include="files\logs\login.logpg" />
     <None Include="files\savings.pg" />
     <None Include="files\venit.pg" />
   </ItemGroup>
