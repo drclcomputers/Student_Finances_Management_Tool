@@ -52,7 +52,7 @@ public:
 		else if (type == 3) fin << "Sold-Stuff";
 		else if (type == 4) {
 			cout << "Custom income: ";
-			char customtype[100]; cin.get(); cin.getline(customtype, 100);
+			char customtype[100]; cin.ignore();  cin.getline(customtype, 100);
 			fin << customtype;
 		}
 
@@ -94,7 +94,7 @@ public:
 		else if (type == 6) fin << "Home-Supplies";
 		else if (type == 7) {
 			cout << "Custom expense: ";
-			char customtype[101]; cin.get(); cin.getline(customtype, 100);
+			char customtype[101]; cin.ignore();  cin.getline(customtype, 100);
 			fin << customtype;
 		}
 
@@ -374,6 +374,15 @@ public:
 			ofstream fin6("./files/savings.pg", ios::trunc);
 			fin6 << 0;
 			fin6.close();
+			ofstream fin8("./files/logins/user.lg", ios::trunc);
+			fin8.close();
+			ofstream fin9("./files/logins/pass.lg", ios::trunc);
+			fin9.close();
+			cout << "The program will shut down to delete all the files!\n\n";
+			cout << "Press any key to continue . . . ";
+			cin.ignore();
+			cin.get();
+			return;
 		}
 	}
 
@@ -454,6 +463,7 @@ public:
 		}
 		else if (strstr(com, "reset")) {
 			reset();
+			return;
 		}
 		else if (strstr(com, "savings")) {
 			savingsv();

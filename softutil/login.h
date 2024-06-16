@@ -31,10 +31,12 @@ public:
 			cout << YELLOW << "Create account\n\n" << WHITE;
 			cout << "It appears that no user exists. Enter new user: ";
 			char user[50]; cin.getline(user, 50);
+			if (strcmp(user, "exit") == 0) return;
 			fin2 << user;
 			
 			cout << "Enter new password: ";
 			char pass[50]; cin.getline(pass, 50);
+			if (strcmp(pass, "exit") == 0) return;
 			fin1 << pass;
 			
 			cout << "Now, you'll be directed to the login screen.\n\n";
@@ -49,7 +51,6 @@ public:
 
 
 	bool loginfunc() {
-		
 		check();
 		cout << YELLOW << "Login\n\n" << WHITE;
 		cout <<"User: ";
