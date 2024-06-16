@@ -14,6 +14,13 @@
 #endif
 
 
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define WHITE "\033[37m"
+#define BLUE "\033[34m"
+
+
 typedef int natural;
 
 using namespace std;
@@ -285,17 +292,17 @@ public:
 		ifstream fi1n("./files/buget.pg");
 		fi1n >> buget;
 		fi1n.close();
-		cout << "\033[33m";
+		cout << YELLOW;
 		cout << "Money: " << venit;
-		cout << "\033[34m";
+		cout << BLUE;
 		cout << "      Budget: " << buget << '\n';
-		cout << "\033[31m";
+		cout << RED;
 		int savings;
 		ifstream fin3("./files/savings.pg");
 		fin3 >> savings;
 		fin3.close();
 		cout << "Savings: " << savings << "\n\n";
-		cout << "\033[0m";
+		cout << WHITE;
 		cout << "What do you want to do: \n1. Deposit\n2. Withdraw\n3. View History\n4. Exit\n\n> ";
 		int choice; cin >> choice;
 		while (choice > 4 || choice < 1) {
@@ -349,7 +356,7 @@ public:
 	}
 
 	void reset() {
-		cout << "Are you sure to delete all your incomes: ";
+		cout << "Are you sure to delete all your finances: ";
 		char ans[5]; cin >> ans;
 		if (strstr(ans, "yes")) {
 			ofstream fin2("./files/income.pg", ios::trunc);
@@ -396,21 +403,21 @@ public:
 		ifstream fi1n("./files/buget.pg");
 		fi1n >> buget;
 		fi1n.close();
-		cout << "\033[33m";
+		cout << YELLOW;
 		cout << "Money: " << venit;
-		cout << "\033[34m";
+		cout << BLUE;
 		cout << "      Budget: " << buget << '\n';
-		cout << "\033[31m";
+		cout << RED;
 		if (venit >= buget) cout << "All good!\n";
 		else if (venit <= buget / 2 && venit > 0) cout << "Your income is kind of low!\n";
 		else if (venit == 0) cout << "You're on the verge of bankruptcy\n";
 		else if (venit < 0) cout << "You're in debt!\n";
-		cout << "\033[0m";
+		cout << WHITE;
 		cout << '\n';
 		cout << "> ";  
-		cout << "\033[32m";
+		cout << GREEN;
 		char com[21]; cin.getline(com, 21);
-		cout << "\033[0m";
+		cout << WHITE;
 		if (strncmp(com, "income", 6)==0) {
 			income();
 		}

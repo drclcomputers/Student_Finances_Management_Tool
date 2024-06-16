@@ -16,6 +16,9 @@
     <Filter Include="Source Files\files">
       <UniqueIdentifier>{dee64401-35d8-4e53-a74f-47f9ea9f1e10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\files\logins">
+      <UniqueIdentifier>{87bccb31-1d53-41ac-9acf-489809f6524f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="softutil.cpp">
@@ -24,6 +27,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="login.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -45,6 +51,12 @@
     </None>
     <None Include="files\istoricsavings.pg">
       <Filter>Source Files\files</Filter>
+    </None>
+    <None Include="files\logins\user.lg">
+      <Filter>Source Files\files\logins</Filter>
+    </None>
+    <None Include="files\logins\pass.lg">
+      <Filter>Source Files\files\logins</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

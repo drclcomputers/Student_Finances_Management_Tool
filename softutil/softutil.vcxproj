@@ -131,12 +131,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
+    <ClInclude Include="login.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg" />
     <None Include="files\expense.pg" />
     <None Include="files\income.pg" />
     <None Include="files\istoricsavings.pg" />
+    <None Include="files\logins\pass.lg" />
+    <None Include="files\logins\user.lg" />
     <None Include="files\savings.pg" />
     <None Include="files\venit.pg" />
   </ItemGroup>
