@@ -38,6 +38,9 @@
     <ClInclude Include="cryptographie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="card.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg">
@@ -67,5 +70,13 @@
     <None Include="files\logs\login.logpg">
       <Filter>Source Files\files\logs</Filter>
     </None>
+    <None Include="files\cards.pg">
+      <Filter>Source Files\files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="de_adaugat.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

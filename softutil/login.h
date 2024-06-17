@@ -91,6 +91,7 @@ public:
 		while(strcmp(user, realuser) != 0) {
 			cout << RED << "Incorrect User! Enter correct user (type 'exit' to exit): " << WHITE;
 			cin.getline(user, 50);
+			strcpy(user, crypto.encrypt(user, 12));
 			if (strcmp(user, "exit") == 0) return 0;
 		}
 
@@ -108,6 +109,7 @@ public:
 		while (strcmp(pass, realpass) != 0) {
 			cout << RED << "Incorrect Password! Enter correct password (type 'exit' to exit): " << WHITE;
 			cin.getline(pass, 50);
+			strcpy(user, crypto.encrypt(pass, 12));
 			if (strcmp(pass, "exit") == 0) return 0;
 		}
 

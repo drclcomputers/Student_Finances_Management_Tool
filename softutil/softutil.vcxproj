@@ -131,11 +131,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
+    <ClInclude Include="card.h" />
     <ClInclude Include="cryptographie.h" />
     <ClInclude Include="login.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg" />
+    <None Include="files\cards.pg" />
     <None Include="files\expense.pg" />
     <None Include="files\income.pg" />
     <None Include="files\istoricsavings.pg" />
@@ -144,6 +146,9 @@
     <None Include="files\logs\login.logpg" />
     <None Include="files\savings.pg" />
     <None Include="files\venit.pg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="de_adaugat.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

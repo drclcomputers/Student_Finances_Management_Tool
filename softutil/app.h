@@ -8,6 +8,9 @@
 #include<iomanip>
 #include<cstdlib>
 
+#include "cryptographie.h"
+#include "card.h"
+cardx crd;
 
 
 #ifdef _WIN32
@@ -15,7 +18,6 @@
 #else
 #define CLEAR_SCREEN "clear"
 #endif
-
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
@@ -25,8 +27,6 @@
 
 
 typedef int natural;
-
-
 
 using namespace std;
 
@@ -334,7 +334,7 @@ public:
 	void resetsavings() {
 		cout << "Are you sure to delete all your savings: ";
 		char ans[5]; cin >> ans;
-		if (strstr(ans, "yes")) {
+		if (strcmp(ans, "yes")==0) {
 			ofstream fin1("./files/savings.pg", ios::trunc);
 			fin1.close();
 			ofstream fin2("./files/istoricsavings.pg", ios::trunc);
@@ -345,7 +345,7 @@ public:
 	void resetincome() {
 		cout << "Are you sure to delete all your incomes: ";
 		char ans[5]; cin >> ans;
-		if (strstr(ans, "yes")) {
+		if (strcmp(ans, "yes")==0) {
 			ofstream fin1("./files/income.pg", ios::trunc);
 			fin1.close();
 		}
@@ -354,7 +354,7 @@ public:
 	void resetexpense() {
 		cout << "Are you sure to delete all your expenses: ";
 		char ans[5]; cin >> ans;
-		if (strstr(ans, "yes")) {
+		if (strcmp(ans, "yes")==0) {
 			ofstream fin1("./files/expense.pg", ios::trunc);
 			fin1.close();
 		}
@@ -363,7 +363,7 @@ public:
 	void reset() {
 		cout << "Are you sure to delete all your finances: ";
 		char ans[5]; cin >> ans;
-		if (strstr(ans, "yes")) {
+		if (strcmp(ans, "yes")==0) {
 			ofstream fin2("./files/income.pg", ios::trunc);
 			fin2.close();
 			ofstream fin3("./files/expense.pg", ios::trunc);
@@ -383,6 +383,8 @@ public:
 			fin8.close();
 			ofstream fin9("./files/logins/pass.lg", ios::trunc);
 			fin9.close();
+			ofstream fin10("./files/logins/cards.lg", ios::trunc);
+			fin10.close();
 			cout << "The program will shut down to delete all the files!\n\n";
 			cout << "Press any key to continue . . . ";
 			cin.ignore();
@@ -396,8 +398,10 @@ public:
 		cout << "------------------Help------------------\n\n";
 		cout << "income -> add new income entry\n";
 		cout << "expense -> add new expense entry\n";
+		cout << "card -> add new card\n";
 		cout << "showincome -> show a list of all incomes\n";
 		cout << "showexpense -> show a list of all expenses\n";
+		cout << "showcard -> show a list of all cards\n";
 		cout << "setbudget -> sets budget\n";
 		cout << "exit -> exit the software\n";
 		cout << "help -> show help menu\n";
@@ -438,50 +442,58 @@ public:
 		else if (strncmp(com, "expense", 7)==0) {
 			expense();
 		}
-		else if (strstr(com, "setbudget")) {
+		else if (strcmp(com, "setbudget")==0) {
 			setbudget();
 		}
-		else if (strstr(com, "exit")) {
+		else if (strcmp(com, "exit")==0) {
 			cout << "All transactions were saved automatically.\n";
 			cout << "Press any key to continue . . . ";
 			cin.get();
 			return;
 		}
-		else if (strstr(com, "showincome")) {
+		else if (strcmp(com, "showincome")==0) {
 			showincome();
 			cout << "Press any key to continue . . . ";
 			cin.get();
 		}
-		else if (strstr(com, "showexpense")) {
+		else if (strcmp(com, "showexpense")==0) {
 			showexpense();
 			cout << "Press any key to continue . . . ";
 			cin.get();
 		}
-		else if (strstr(com, "resetincome")) {
+		else if (strcmp(com, "resetincome")==0) {
 			resetincome();
 		}
-		else if (strstr(com, "resetexpense")) {
+		else if (strcmp(com, "resetexpense")==0) {
 			resetexpense();
 		}
-		else if (strstr(com, "resetsavings")) {
+		else if (strcmp(com, "resetsavings")==0) {
 			resetsavings();
 		}
-		else if (strstr(com, "reset")) {
+		else if (strcmp(com, "reset")==0) {
 			reset();
 			return;
 		}
-		else if (strstr(com, "savings")) {
+		else if (strcmp(com, "savings")==0) {
 			savingsv();
 		}
-		else if (strstr(com, "report")) {
+		else if (strcmp(com, "report")==0) {
 			report();
 			cout << "Press any key to continue . . . ";
 			cin.get();
 		}
-		else if (strstr(com, "help")) {
+		else if (strcmp(com, "help")==0) {
 			help();
 			cout << "Press any key to continue . . . ";
 			cin.get();
+		}
+		else if (strcmp(com, "showcard")==0) {
+			crd.show();
+			cout << "Press any key to continue . . . ";
+			cin.get();
+		}
+		else if (strcmp(com, "card")==0) {
+			crd.add();
 		}
 		system(CLEAR_SCREEN);
 		start();
