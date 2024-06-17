@@ -137,7 +137,7 @@ public:
 	void showincome() {
 		cout << "Value,  Type,  Date\n\n";
 		ifstream fin("./files/income.pg", ios::app);
-		for (int i = 1; fin; i++) {
+		for (natural i = 1; fin; i++) {
 			char text[200]; fin.getline(text, 200);
 			cout << i << ". " << text << '\n';
 			fin.get();
@@ -149,7 +149,7 @@ public:
 	void showexpense() {
 		cout << "Value,  Type,  Date\n\n";
 		ifstream fin("./files/expense.pg", ios::app);
-		for (int i = 1; fin; i++) {
+		for (natural i = 1; fin; i++) {
 			char text[200]; fin.getline(text, 200);
 			cout << i << ". " << text << '\n';
 			fin.get();
@@ -160,9 +160,9 @@ public:
 
 
 	void report() {
-		int sum = 0;
+		natural sum = 0;
 		ifstream fin("./files/income.pg", ios::app);
-		for (int i = 1; fin; i++) {
+		for (natural i = 1; fin; i++) {
 			char text[200]; fin.getline(text, 200);
 			char *p = strtok(text, " ");
 			if (p != NULL) {
@@ -173,7 +173,7 @@ public:
 		}
 		fin.close();
 		ifstream fin1("./files/expense.pg", ios::app);
-		for (int i = 1; fin1; i++) {
+		for (natural i = 1; fin1; i++) {
 			char text[200]; fin1.getline(text, 200);
 			char* p = strtok(text, " ");
 			if (p != NULL) {
