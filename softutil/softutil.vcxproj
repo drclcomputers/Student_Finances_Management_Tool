@@ -152,9 +152,6 @@
     <None Include="files\savings.pg" />
     <None Include="files\venit.pg" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="de_adaugat.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

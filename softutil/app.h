@@ -113,7 +113,7 @@ public:
 		fin << setw(5) << " ";
 		time_t rawtime = time(0);
 		char* date_time = ctime(&rawtime);
-		fin << date_time << '\n';
+		fin << date_time;
 
 
 		fin.close();
@@ -152,7 +152,6 @@ public:
 		for (natural i = 1; fin; i++) {
 			char text[200]; fin.getline(text, 200);
 			cout << i << ". " << text << '\n';
-			fin.get();
 		}
 		cout << '\n';
 		fin.close();
@@ -205,6 +204,8 @@ public:
 		cout << "showexpense -> show a list of all expenses\n";
 		cout << "showcard -> show a list of all cards\n";
 		cout << "showloan -> show a list of all loans\n";
+		cout << "deleteincome -> delete an income\n";
+		cout << "deleteexpense ->delete an expense\n";
 		cout << "setbudget -> sets budget\n";
 		cout << "exit -> exit the software\n";
 		cout << "help -> show help menu\n";
@@ -264,11 +265,14 @@ public:
 			cout << "Press any key to continue . . . ";
 			cin.get();
 		}
-		else if (strcmp(com, "resetincome")==0) {
-			resetincome();
-		}
 		else if (strcmp(com, "deleteincome") == 0) {
 			deleteincome();
+		}
+		else if (strcmp(com, "deleteexpense") == 0) {
+			deleteexpense();
+		}
+		else if (strcmp(com, "resetincome")==0) {
+			resetincome();
 		}
 		else if (strcmp(com, "resetexpense")==0) {
 			resetexpense();
