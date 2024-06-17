@@ -133,7 +133,9 @@
     <ClInclude Include="app.h" />
     <ClInclude Include="card.h" />
     <ClInclude Include="cryptographie.h" />
+    <ClInclude Include="loans.h" />
     <ClInclude Include="login.h" />
+    <ClInclude Include="reset.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg" />
@@ -141,6 +143,7 @@
     <None Include="files\expense.pg" />
     <None Include="files\income.pg" />
     <None Include="files\istoricsavings.pg" />
+    <None Include="files\loans.pg" />
     <None Include="files\logins\pass.lg" />
     <None Include="files\logins\user.lg" />
     <None Include="files\logs\login.logpg" />

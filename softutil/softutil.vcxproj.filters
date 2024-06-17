@@ -41,6 +41,12 @@
     <ClInclude Include="card.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="loans.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="reset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg">
@@ -71,6 +77,9 @@
       <Filter>Source Files\files\logs</Filter>
     </None>
     <None Include="files\cards.pg">
+      <Filter>Source Files\files</Filter>
+    </None>
+    <None Include="files\loans.pg">
       <Filter>Source Files\files</Filter>
     </None>
   </ItemGroup>

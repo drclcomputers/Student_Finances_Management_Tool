@@ -8,9 +8,12 @@
 #include<iomanip>
 #include<cstdlib>
 
+#include"reset.h"
 #include "cryptographie.h"
 #include "card.h"
+#include "loans.h"
 cardx crd;
+loanx loan;
 
 
 #ifdef _WIN32
@@ -129,11 +132,7 @@ public:
 
 
 	void showincome() {
-		cout << right;
-		cout << setw(6) << "Sum"
-			<< setw(5) << " " << "Description"
-			<< setw(10) << " " << "Date";
-		cout << "\n\n";
+		cout << "Value,  Type,  Date\n\n";
 		ifstream fin("./files/income.pg", ios::app);
 		for (int i = 1; fin; i++) {
 			char text[200]; fin.getline(text, 200);
@@ -145,11 +144,7 @@ public:
 	}
 
 	void showexpense() {
-		cout << right;
-		cout << setw(6) << "Sum"
-			<< setw(5) << " " << "Description"
-			<< setw(10) << " " << "Date";
-		cout << "\n\n";
+		cout << "Value,  Type,  Date\n\n";
 		ifstream fin("./files/expense.pg", ios::app);
 		for (int i = 1; fin; i++) {
 			char text[200]; fin.getline(text, 200);
@@ -331,78 +326,6 @@ public:
 	}
 
 
-	void resetsavings() {
-		cout << "Are you sure to delete all your savings: ";
-		char ans[5]; cin >> ans;
-		if (strcmp(ans, "yes")==0) {
-			ofstream fin1("./files/savings.pg", ios::trunc);
-			fin1.close();
-			ofstream fin2("./files/istoricsavings.pg", ios::trunc);
-			fin2.close();
-		}
-	}
-
-	void resetincome() {
-		cout << "Are you sure to delete all your incomes: ";
-		char ans[5]; cin >> ans;
-		if (strcmp(ans, "yes")==0) {
-			ofstream fin1("./files/income.pg", ios::trunc);
-			fin1.close();
-		}
-	}
-
-	void resetexpense() {
-		cout << "Are you sure to delete all your expenses: ";
-		char ans[5]; cin >> ans;
-		if (strcmp(ans, "yes")==0) {
-			ofstream fin1("./files/expense.pg", ios::trunc);
-			fin1.close();
-		}
-	}
-
-	void resetcard() {
-		cout << "Are you sure to delete all your cards: ";
-		char ans[5]; cin >> ans;
-		if (strcmp(ans, "yes") == 0) {
-			ofstream fin1("./files/cards.pg", ios::trunc);
-			fin1.close();
-		}
-	}
-
-	void reset() {
-		cout << "Are you sure to delete all your finances: ";
-		char ans[5]; cin >> ans;
-		if (strcmp(ans, "yes")==0) {
-			ofstream fin2("./files/income.pg", ios::trunc);
-			fin2.close();
-			ofstream fin3("./files/expense.pg", ios::trunc);
-			fin3.close();
-			ofstream fin7("./files/istoricsavings.pg", ios::trunc);
-			fin7.close();
-			ofstream fin4("./files/buget.pg", ios::trunc);
-			fin4 << 0;
-			fin4.close();
-			ofstream fin5("./files/venit.pg", ios::trunc);
-			fin5 << 0;
-			fin5.close();
-			ofstream fin6("./files/savings.pg", ios::trunc);
-			fin6 << 0;
-			fin6.close();
-			ofstream fin8("./files/logins/user.lg", ios::trunc);
-			fin8.close();
-			ofstream fin9("./files/logins/pass.lg", ios::trunc);
-			fin9.close();
-			ofstream fin10("./files/logins/cards.lg", ios::trunc);
-			fin10.close();
-			cout << "The program will shut down to delete all the files!\n\n";
-			cout << "Press any key to continue . . . ";
-			cin.ignore();
-			cin.get();
-			return;
-		}
-	}
-
-
 	void help() {
 		cout << "------------------Help------------------\n\n";
 		cout << "income -> add new income entry\n";
@@ -482,6 +405,9 @@ public:
 		else if (strcmp(com, "resetcard") == 0) {
 			resetcard();
 		}
+		else if (strcmp(com, "resetloan") == 0) {
+			resetloan();
+		}
 		else if (strcmp(com, "reset")==0) {
 			reset();
 			return;
@@ -504,8 +430,16 @@ public:
 			cout << "Press any key to continue . . . ";
 			cin.get();
 		}
-		else if (strcmp(com, "card")==0) {
+		else if (strcmp(com, "card") == 0) {
 			crd.add();
+		}
+		else if (strcmp(com, "loan")==0) {
+			loan.add();
+		}
+		else if (strcmp(com, "showloan") == 0) {
+			loan.show();
+			cout << "Press any key to continue . . . ";
+			cin.get();
 		}
 		system(CLEAR_SCREEN);
 		start();

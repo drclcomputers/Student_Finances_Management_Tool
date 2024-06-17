@@ -1,4 +1,4 @@
-1. Cards (Debit and Credit) ---- rezolva problema cu bufferul
-2. Loans
+
+
 3. Bills
 4. Charts

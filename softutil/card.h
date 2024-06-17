@@ -28,6 +28,7 @@ using namespace std;
 class cardx{
 public:
 	void show() {
+		cout << "Number,   Expiration Month/Expiration Year,   CVC,   Type\n\n";
 		ifstream fin("./files/cards.pg");
 		//fin.ignore();
 		for (int i = 1; fin; i++) {
