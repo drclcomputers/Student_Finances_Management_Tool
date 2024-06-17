@@ -8,11 +8,12 @@
 #include<iomanip>
 #include<cstdlib>
 
-#include"reset.h"
+#include "reset.h"
 #include "cryptographie.h"
 #include "card.h"
 #include "loans.h"
 #include "savings.h"
+#include "delete.h"
 
 cardx crd;
 loanx loan;
@@ -70,7 +71,7 @@ public:
 		fin << setw(5) << " ";
 		time_t rawtime = time(0);
 		char* date_time = ctime(&rawtime);
-		fin << date_time << '\n';
+		fin << date_time;
 
 
 		fin.close();
@@ -136,11 +137,10 @@ public:
 
 	void showincome() {
 		cout << "Value,  Type,  Date\n\n";
-		ifstream fin("./files/income.pg", ios::app);
+		ifstream fin("./files/income.pg");
 		for (natural i = 1; fin; i++) {
-			char text[200]; fin.getline(text, 200);
+			char text[202]; fin.getline(text, 200);
 			cout << i << ". " << text << '\n';
-			fin.get();
 		}
 		cout << '\n';
 		fin.close();
@@ -266,6 +266,9 @@ public:
 		}
 		else if (strcmp(com, "resetincome")==0) {
 			resetincome();
+		}
+		else if (strcmp(com, "deleteincome") == 0) {
+			deleteincome();
 		}
 		else if (strcmp(com, "resetexpense")==0) {
 			resetexpense();

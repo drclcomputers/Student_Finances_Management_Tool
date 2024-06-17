@@ -133,6 +133,7 @@
     <ClInclude Include="app.h" />
     <ClInclude Include="card.h" />
     <ClInclude Include="cryptographie.h" />
+    <ClInclude Include="delete.h" />
     <ClInclude Include="loans.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="reset.h" />
