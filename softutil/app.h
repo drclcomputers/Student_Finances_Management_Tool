@@ -360,6 +360,15 @@ public:
 		}
 	}
 
+	void resetcard() {
+		cout << "Are you sure to delete all your cards: ";
+		char ans[5]; cin >> ans;
+		if (strcmp(ans, "yes") == 0) {
+			ofstream fin1("./files/cards.pg", ios::trunc);
+			fin1.close();
+		}
+	}
+
 	void reset() {
 		cout << "Are you sure to delete all your finances: ";
 		char ans[5]; cin >> ans;
@@ -469,6 +478,9 @@ public:
 		}
 		else if (strcmp(com, "resetsavings")==0) {
 			resetsavings();
+		}
+		else if (strcmp(com, "resetcard") == 0) {
+			resetcard();
 		}
 		else if (strcmp(com, "reset")==0) {
 			reset();
