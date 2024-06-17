@@ -136,6 +136,7 @@
     <ClInclude Include="loans.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="reset.h" />
+    <ClInclude Include="savings.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg" />

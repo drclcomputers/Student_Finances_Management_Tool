@@ -47,6 +47,9 @@
     <ClInclude Include="reset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="savings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg">
