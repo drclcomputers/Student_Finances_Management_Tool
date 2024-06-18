@@ -45,7 +45,7 @@ public:
 		cout << "------------------Add-Card------------------\n\nEnter card number: ";
 		//cin.ignore();
 		char numar[40]; cin.getline(numar, 20);
-		cout << "R: " << numar << '\n';
+		//cout << "R: " << numar << '\n';
 		cout << "Enter expiration month: ";
 		char month[3], year[5], cvc[4]; cin.getline(month, 3);
 		//cin.get();
