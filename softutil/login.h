@@ -36,7 +36,7 @@ public:
 		system(CLEAR_SCREEN);
 	}
 
-	void check() {
+	bool check() {
 		ifstream fin("./files/logins/user.lg");
 		if (fin.peek() == ifstream::traits_type::eof()) {
 			fin.close();
@@ -45,12 +45,12 @@ public:
 			cout << YELLOW << "Create account\n\n";
 			cout << WHITE << "It appears that no user exists. Enter new user: ";
 			char user[50]; cin.getline(user, 50);
-			if (strcmp(user, "exit") == 0) return;
+			if (strcmp(user, "exit") == 0) return 0;
 			fin2 << crypto.encrypt(user, 12);
 			
 			cout << "Enter new password: ";
 			char pass[50]; cin.getline(pass, 50);
-			if (strcmp(pass, "exit") == 0) return;
+			if (strcmp(pass, "exit") == 0) return 0;
 			fin1 << crypto.encrypt(pass, 12);
 			
 			cout << "Now, you'll be directed to the login screen.\n\n";
@@ -61,6 +61,7 @@ public:
 			fin2.close();
 		}
 		fin.close();
+		return 1;
 	}
 
 	void logs(char *s) {
@@ -77,12 +78,12 @@ public:
 
 	bool loginfunc() {
 		welcome();
-		check();
+		if (check() == 0) return 0;
 		cout << YELLOW << "Login\n\n" << WHITE;
 		cout <<"User: ";
 		char user[50], realuser[50]; cin.getline(user, 50);
-		strcpy(user, crypto.encrypt(user, 12));
 		if (strcmp(user, "exit") == 0) return 0;
+		strcpy(user, crypto.encrypt(user, 12));
 
 		ifstream fin("./files/logins/user.lg");
 		fin.getline(realuser, 50);
@@ -97,8 +98,8 @@ public:
 
 		cout << WHITE << "Password: ";
 		char pass[50], realpass[50]; cin.getline(pass, 50);
-		strcpy(pass, crypto.encrypt(pass, 12));
 		if (strcmp(pass, "exit") == 0) return 0;
+		strcpy(pass, crypto.encrypt(pass, 12));
 		
 
 		ifstream fin1("./files/logins/pass.lg");

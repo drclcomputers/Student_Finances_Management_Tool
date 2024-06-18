@@ -76,9 +76,9 @@ void reset() {
 		fin8.close();
 		ofstream fin9("./files/logins/pass.lg", ios::trunc);
 		fin9.close();
-		ofstream fin10("./files/logins/cards.lg", ios::trunc);
+		ofstream fin10("./files/cards.pg", ios::trunc);
 		fin10.close();
-		ofstream fin11("./files/logins/loans.lg", ios::trunc);
+		ofstream fin11("./files/loans.pg", ios::trunc);
 		fin11.close();
 		cout << "The program will shut down to delete all the files!\n\n";
 		cout << "Press any key to continue . . . ";

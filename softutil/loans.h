@@ -46,13 +46,13 @@ public:
 	void add(){
 		//cin.ignore();
 		cout << "------------------Add-Loan------------------\n\nEnter loan name: ";
-		char nume[100]; cin.getline(nume, 99);
+		char nume[200]; cin.getline(nume, 199);
 		cout << "Enter loan value: ";
 		char value[100]; cin.getline(value, 99);
 		cout << "Enter number of monthly payments: ";
 		char nr[4]; cin.getline(nr, 3);
 		int valu = stoi(value), months = stoi(nr);
-		char val[10]; sprintf(val, "%d", valu / months);
+		char val[20]; sprintf(val, "%d", valu / months);
 
 		char line[302] = " ";
 		strcat(line, nume);

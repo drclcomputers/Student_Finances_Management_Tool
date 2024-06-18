@@ -168,7 +168,6 @@ public:
 				cout << "+" << p << "\n";
 				sum += atoi(p);
 			}
-			fin.get();
 		}
 		fin.close();
 		ifstream fin1("./files/expense.pg", ios::app);
