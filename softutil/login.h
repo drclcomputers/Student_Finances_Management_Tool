@@ -13,7 +13,7 @@ using namespace std;
 class login {
 public:
 	void welcome();
-	bool check();
+	int check();
 	void logs(char *s);
 	int loginfunc();
 

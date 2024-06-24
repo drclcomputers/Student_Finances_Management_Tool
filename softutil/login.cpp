@@ -12,7 +12,7 @@ void login::welcome() {
 	system(CLEAR_SCREEN);
 }
 
-bool login::check() {
+int login::check() {
 	ifstream fin("./files/logins/user.lg");
 	if (fin.peek() == ifstream::traits_type::eof()) {
 		fin.close();
@@ -22,11 +22,13 @@ bool login::check() {
 		cout << WHITE << "It appears that no user exists. Enter new user: ";
 		char user[50]; cin.getline(user, 50);
 		if (strcmp(user, "exit") == 0) return 0;
+		if (strcmp(user, "reset") == 0) return 2;
 		fin2 << crypto.encrypt(user, 12);
 
 		cout << "Enter new password: ";
 		char pass[50]; cin.getline(pass, 50);
 		if (strcmp(pass, "exit") == 0) return 0;
+		if (strcmp(pass, "reset") == 0) return 2;
 		fin1 << crypto.encrypt(pass, 12);
 
 		cout << "Now, you'll be directed to the login screen.\n\n";
@@ -53,7 +55,9 @@ void login::logs(char* s) {
 
 int login::loginfunc() {
 	welcome();
-	if (check() == 0) return 0;
+	int o = check();
+	if (o == 0) return 0;
+	if (o == 2) return 2;
 	cout << YELLOW << "Login\n\n" << WHITE;
 	cout << "User: ";
 	char user[50], realuser[50]; cin.getline(user, 50);
