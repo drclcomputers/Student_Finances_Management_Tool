@@ -1,13 +1,6 @@
 #include "app.h"
 #include "login.h"
+#include "reset.h"
+#include "softutil.h"
 
-int main() {
-	login login;
-	bool start=login.loginfunc();
-	if (start==1) {
-		app app;
-		app.start();
-	}
-
-	return 0;
-}
+int main();

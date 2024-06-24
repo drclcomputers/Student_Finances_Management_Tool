@@ -127,17 +127,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app.cpp" />
+    <ClCompile Include="card.cpp" />
+    <ClCompile Include="conf.cpp" />
+    <ClCompile Include="cryptographie.cpp" />
+    <ClCompile Include="delete.cpp" />
+    <ClCompile Include="loans.cpp" />
+    <ClCompile Include="login.cpp" />
+    <ClCompile Include="reset.cpp" />
+    <ClCompile Include="savings.cpp" />
     <ClCompile Include="softutil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
     <ClInclude Include="card.h" />
+    <ClInclude Include="conf.h" />
     <ClInclude Include="cryptographie.h" />
     <ClInclude Include="delete.h" />
     <ClInclude Include="loans.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="reset.h" />
     <ClInclude Include="savings.h" />
+    <ClInclude Include="softutil.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="files\buget.pg" />
