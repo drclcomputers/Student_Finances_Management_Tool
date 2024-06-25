@@ -1,5 +1,6 @@
 #include "card.h"
 #include "cryptographie.h"
+
 cryptographiex crypto1;
 
 void cardx::show() {
